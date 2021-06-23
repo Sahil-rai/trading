@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SettingsButton extends StatelessWidget {
-  const SettingsButton({
-    Key key,
-    @required this.btnText,
-  }) : super(key: key);
-
+  final VoidCallback onPressFunc;
   final String btnText;
+
+  SettingsButton({this.btnText, this.onPressFunc});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +13,7 @@ class SettingsButton extends StatelessWidget {
         width: 300,
         height: 50,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressFunc,
           child: Text(btnText),
         ),
       ),

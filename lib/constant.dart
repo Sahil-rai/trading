@@ -2,7 +2,7 @@ import 'package:flutteranimatedchartsapp/link_data.dart';
 
 final buttonsData = [
   ButtonData(title: 'Personal Details'),
-  ButtonData(title: 'Bank Details'),
+  ButtonData(title: 'Wallet Details'),
   ButtonData(title: 'Transaction History'),
   ButtonData(title: 'Contact Us'),
   ButtonData(title: 'FAQs')

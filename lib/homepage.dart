@@ -3,6 +3,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutteranimatedchartsapp/constant.dart';
 import 'package:flutteranimatedchartsapp/footer.dart';
 import 'package:flutteranimatedchartsapp/link_data.dart';
+import 'package:flutteranimatedchartsapp/personal_details.dart';
 import 'package:flutteranimatedchartsapp/settings_btn.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -240,7 +241,42 @@ class _HomePageState extends State<HomePage> {
                                 height: 20,
                               ),
                               for (var btn in buttonsData)
-                                SettingsButton(btnText: btn.title),
+                                SettingsButton(
+                                    btnText: btn.title,
+                                    onPressFunc: () {
+                                      if (btn.title == 'Personal Details') {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              PersonalDetails(),
+                                        ));
+                                      } else if (btn.title ==
+                                          'Wallet Details') {
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) =>
+                                                AlertDialog(
+                                                  title: const Text('Wallet'),
+                                                  content: const Text(
+                                                      'Balance : 500'),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(context,
+                                                              'Cancel'),
+                                                      child:
+                                                          const Text('Cancel'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context, 'OK'),
+                                                      child: const Text('OK'),
+                                                    ),
+                                                  ],
+                                                ));
+                                      }
+                                    }),
                               Spacer(),
                               Footer(),
                               SizedBox(
